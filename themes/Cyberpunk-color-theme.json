@@ -1,0 +1,267 @@
+{
+	"name": "Cyberpunk",
+	"type": "dark",
+	"colors": {
+    "editor.background": "#252525",
+    "editor.foreground": "#FFFFFFBF", // 75%
+    "activityBar.background": "#252525",
+    "activityBar.foreground": "#dadada",
+    "activityBarBadge.background": "#FCEE0A",
+    "activityBarBadge.foreground": "#000000",
+    "sideBar.background": "#202020",
+    "sideBarSectionHeader.background": "#2D2D2D",
+    "statusBar.foreground": "#000000",
+    "statusBar.background": "#60D5EF",
+    "statusBar.debuggingBackground": "#FF003C",
+    "statusBar.noFolderBackground": "#60D5EF",
+    "button.background": "#60D5EF",
+    "button.foreground": "#000000",
+    "textLink.foreground": "#60D5EF",
+    "textLink.activeForeground": "#60D5EF",
+    "list.activeSelectionForeground": "#ffffff",
+    "list.activeSelectionBackground": "#60D5EF66", // 40%
+    "list.errorForeground": "#FF003CB3", // 70%
+    "list.warningForeground": "#FCEE0A",
+    "list.highlightForeground": "#60D5EF",
+    "list.focusBackground": "#60D5EF66", // 40%
+    "focusBorder": "#60D5EF",
+    "inputOption.activeForeground": "#2D2D2D",
+    "inputOption.activeBackground": "#60D5EF",
+    "inputValidation.errorForeground": "#000000",
+    "inputValidation.errorBackground": "#FF003CCC",
+    "editor.findMatchHighlightBackground": "#60D5EF4D", // 30%
+    "editor.wordHighlightBackground": "#60D5EF4D", // 30%
+    "editor.selectionForeground": "#ffffff",
+    "editor.selectionBackground": "#60D5EF66", // 40%
+    "editorWidget.background": "#202020E6", // 90%
+    "editorSuggestWidget.highlightForeground": "#60D5EF",
+    "editorSuggestWidget.selectedBackground": "#60D5EF66", // 40%
+    "terminalCursor.foreground": "#60D5EF4D",
+    "terminalCursor.background": "#60D5EF",
+    "terminal.selectionBackground": "#60D5EF66"
+  },
+	"tokenColors": [
+    /**
+     * Font Colors
+     */
+    {
+      "name": "Language Keywords",
+			"scope": [
+        "storage",
+        "keyword",
+        "constant",
+        "punctuation.accessor",
+        "punctuation.separator",
+        "punctuation.terminator",
+        "punctuation.definition.class",
+        "punctuation.definition.tag",
+        "punctuation.definition.block.sequence",
+        "punctuation.definition.arguments",
+        "punctuation.definition.decorator",
+        "punctuation.definition.parameters",
+        "support.type",
+        "meta.tag.block.any",
+
+        /**
+         * PHP specific.
+         */
+        "source.php punctuation.definition.begin.bracket",
+        "source.php punctuation.definition.end.bracket",
+        "source.php meta.function storage.type.function",
+        
+        /**
+         * Javascript specific.
+         */
+        "source.js meta.class punctuation.definition.block", // Set curly brace color for the class.
+        "source.js meta.class meta.var.expr storage.type", // For the `let` keyword.
+        "source.js meta.method.declaration meta.parameters", // Method argument parenthasees.
+        "source.js meta.method.declaration storage.type.function.arrow", // Javascript arrow functions.
+        "source.js meta.brace.round",
+        "source.js string meta.template.expression",
+
+        /** 
+         * Markdown
+         */
+        "text.html.markdown punctuation.definition"
+			],
+			"settings": {
+        "foreground": "#DD5500"
+			}
+    },
+    {
+      "name": "Root - Light",
+			"scope": [
+        "source",
+        "keyword.operator.return-value",
+        "variable.other.property",
+        "variable.other.object.property",
+        "punctuation.section.array",
+        "punctuation.definition.dict",
+
+        /**
+         * PHP specific.
+         *
+         * This is so that PHP's return type declaration can be set to white.
+         * Because of this, we have to explicitly define the language keywords
+         * under the `storage.type` namespace whilst in the PHP context.
+         */
+        "source.php meta.function storage.type",
+
+        /**
+         * Javascript specific stuff.
+         */
+        "source.js meta.objectliteral punctuation.definition.block", // Override brown curly braces for standard objects.
+        "source.js constant.language.import-export-all"
+			],
+			"settings": {
+        "foreground": "#FFFFFFCC"
+			}
+    },
+    {
+      "name": "User Defined Functions / Methods",
+      "scope": [
+        "entity.name.function",
+
+        /**
+         * Javascript specfic.
+         */
+        "source.js meta.method.declaration storage.type"
+      ],
+      "settings": {
+        "foreground": "#E0008E"
+      }
+    },
+    {
+      "name": "Variables / Keys / Class Property Definitions",
+			"scope": [
+        "variable",
+        "meta.object-literal.key",
+        "support.type.property-name",
+        "entity.other.attribute-name", // HTML attributes and such.
+
+        /**
+         * YAML specific.
+         */
+        "source.yaml entity.name.tag"
+			],
+			"settings": {
+        "foreground": "#60D5EF"
+			}
+    },
+    {
+      "name": "Strings",
+      "scope": [
+        "string",
+        "constant.numeric",
+        "string.quoted"
+      ],
+      "settings": {
+        "foreground": "#FCEE0ACC"
+      }
+    },
+    {
+      "name": "Strings (Punctuation)",
+      "scope": [
+        "punctuation.definition.string"
+      ],
+      "settings": {
+        "foreground": "#FCEE0A"
+      }
+    },
+    {
+      "name": "Base Language Functions",
+      "scope": [
+        "meta.function-call",
+        "source.html entity.name.tag",
+        "source.vue entity.name.tag",
+        "entity.name.tag.block.any",
+        "string.regexp punctuation.definition"
+      ],
+      "settings": {
+        "foreground": "#72F1B8CC"
+      }
+    },
+    {
+      "name": "Classes & Self Context",
+      "scope": [
+        "entity.name.type.class",
+        "entity.other.inherited-class",
+        "support.class",
+        "variable.language.this",
+
+        /** 
+         * Javascript stuff.
+         */
+        "source.js entity.name.type"
+      ],
+      "settings": {
+        "foreground": "#FE4450"
+      }
+    },
+		{
+			"name": "Comments and Documentation",
+			"scope": [
+        "comment",
+        "comment keyword",
+        "comment storage",
+        "comment variable",
+        "comment punctuation.separator",
+        
+        /**
+         * Javascript specific.
+         */
+        "source.js comment.block punctuation.definition.block", // Overrides the Javascript docblocks for the `@` character.
+        "source.js meta.objectliteral comment.block punctuation.definition.block",
+        "source.js comment.block entity.name.type",
+        "source.js variable.other.jsdoc"
+			],
+			"settings": {
+        "foreground": "#FFFFFF4D"
+			}
+    },
+
+    /**
+     * Font Styles
+     */
+    {
+      "name": "Normal",
+			"scope": [
+        "comment keyword.other.type",
+        "comment.block",
+        "variable.other.property",
+        "variable.other.object.property"
+      ],
+			"settings": {
+      "fontStyle": ""
+			}
+    },
+    {
+      "name": "Bold",
+			"scope": [
+        "comment keyword.other",
+        "comment storage"
+			],
+			"settings": {
+        "fontStyle": "bold"
+			}
+    },
+    {
+      "name": "Italic",
+			"scope": [
+        "comment",
+        "comment support.class",
+        "variable"
+			],
+			"settings": {
+      "fontStyle": "italic"
+			}
+    },
+    {
+      "name": "Bold - Italic",
+			"scope": [],
+			"settings": {
+      "fontStyle": "bold italic"
+			}
+    }
+	]
+}

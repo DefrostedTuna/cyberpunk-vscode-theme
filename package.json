@@ -1,0 +1,62 @@
+{
+  "name": "cyberpunk",
+  "displayName": "cyberpunk",
+  "description": "Cyberpunk VSCode theme",
+  "publisher": "DefrostedTuna",
+  "version": "0.1.3",
+  "engines": {
+    "vscode": "^1.51.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Cyberpunk",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Cyberpunk-color-theme.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "cyberpunk.enableGlow",
+        "title": "Cyberpunk: Enable Glow"
+      },
+      {
+        "command": "cyberpunk.disableGlow",
+        "title": "Cyberpunk: Disable Glow"
+      }
+    ],
+    "configuration": {
+      "title": "Cyberpunk",
+      "properties": {
+        "cyberpunk.intensity": {
+          "type": "number",
+          "default": 0.5,
+          "description": "Sets the intensity of the glow effect. Value may be any decimal between 0 and 1, with 0 being the lowest intensity (0%) and 1 being the highest intensity (100%). Example: 0.3 would be 30% intensity."
+        },
+        "cyberpunk.radiance": {
+          "type": "number",
+          "default": 3,
+          "description": "Sets the distance that the glow effect should radiate from the font. Acceptable values are whole numbers from 1-4"
+        },
+        "cyberpunk.disableGlow": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable the glow effect."
+        }
+      }
+    }
+  },
+  "activationEvents": [
+    "*",
+    "onCommand:cyberpunk.enableGlow",
+    "onCommand:cyberpunk.disableGlow"
+  ],
+  "main": "./src/extension.js",
+  "devDependencies": {
+    "@types/node": "^8.10.25",
+    "@types/vscode": "^1.51.0"
+  }
+}
