@@ -4,6 +4,10 @@
   "description": "Cyberpunk VSCode theme",
   "publisher": "DefrostedTuna",
   "version": "0.1.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/defrostedtuna/cyberpunk-vscode-theme"
+  },
   "engines": {
     "vscode": "^1.51.0"
   },
