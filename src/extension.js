@@ -41,18 +41,29 @@ function getConfigValues() {
   let configIntensity = parseFloat(config.intensity)
   if (! isNaN(configIntensity) && configIntensity > 1) {
     intensity = 1
-  } else if (isNaN(configIntensity) || (! isNaN(configIntensity) && configIntensity < 0)) {
+  } else if (isNaN(configIntensity) || ((! isNaN(configIntensity) && configIntensity < 0))) {
     disableGlow = true
   } else if (! isNaN(configIntensity)) {
     intensity = configIntensity
   }
 
+  // Font Brightness
+  let fontBrightness = 0.8 // Default
+  let configFontBrightness = parseFloat(config.fontBrightness)
+  if (! isNaN(configFontBrightness) && configFontBrightness > 1) {
+    fontBrightness = 1
+  } else if (isNaN(configFontBrightness) || ((! isNaN(configFontBrightness) && configFontBrightness < 0))) {
+    fontBrightness = 0
+  } else if (! isNaN(configFontBrightness)) {
+    fontBrightness = configFontBrightness
+  }
+
   // Radiance
-  let radance = 3 // Default
+  let radiance = 3 // Default
   let configRadiance = parseInt(config.radiance)
   if (! isNaN(configRadiance) && configRadiance > 4) {
     radiance = 4
-  } else if (isNaN(configRadiance) || (! isNaN(configRadiance) && configRadiance < 0)) {
+  } else if (isNaN(configRadiance) || ((! isNaN(configRadiance) && configRadiance < 0))) {
     radiance = 0
   } else if (! isNaN(configRadiance)) {
     radiance = configRadiance
@@ -61,6 +72,7 @@ function getConfigValues() {
   return {
     disableGlow,
     intensity,
+    fontBrightness,
     radiance
   }
 }
@@ -91,6 +103,7 @@ function enableGlow() {
     // Get the template and write any changes to the system so that the HTML can pick up the JS file.
     let glowInjection = fs.readFileSync(__dirname + '/js/glow-injection.js', 'utf-8')
       .replace(/\[INTENSITY\]/g, intensityHex)
+      .replace(/\[FONT_BRIGHTNESS]/g, config.fontBrightness * 100)
       .replace(/\[RADIANCE\]/g, config.radiance)
 
     let htmlContent = fs.readFileSync(htmlFile, 'utf-8')
