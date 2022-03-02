@@ -123,7 +123,7 @@
         "entity.name.function",
 
         /**
-         * Javascript specfic.
+         * Javascript specific.
          */
         "source.js meta.method.declaration storage.type"
       ],
@@ -190,9 +190,15 @@
         "variable.language.this",
 
         /** 
-         * Javascript stuff.
+         * Javascript specific.
          */
-        "source.js entity.name.type"
+        "source.js entity.name.type",
+
+
+        /**
+         * PHP specific.
+         */
+        "source.php entity.other.alias"
       ],
       "settings": {
         "foreground": "#FE4450"

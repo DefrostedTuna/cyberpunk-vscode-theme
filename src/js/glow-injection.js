@@ -11,16 +11,12 @@
     let radiance = parseInt("[RADIANCE]")
     let colors = {
       '#FE4450': {
-        textColor: '#FFFFFFF2',
+        textColor: "hsl(356deg 100% [FONT_BRIGHTNESS]%)",
         shadowColor: '#FF0011[INTENSITY]'
       },
       '#E0008E': {
-        textColor: '#FFFFFFF2',
+        textColor: "hsl(322deg 100% [FONT_BRIGHTNESS]%)",
         shadowColor: '#FF00A1[INTENSITY]'
-      },
-      '#FCEE0A': {
-        textColor: '#FFF980',
-        shadowColor: '#FCEE0A[INTENSITY]'
       }
     }
 
@@ -48,7 +44,7 @@
     }
 
     let newStyleTag = document.createElement('style')
-    newStyleTag.setAttribute('id', 'cyberpunk-syle-override')
+    newStyleTag.setAttribute('id', 'cyberpunk-style-override')
     newStyleTag.innerText = updatedThemeStyles.replace(/(\r\n|\n|\r)/gm, '')
     document.body.appendChild(newStyleTag)
 
@@ -63,23 +59,11 @@
         let tokensNode = document.querySelector('.vscode-tokens-styles')
 
         if (tokensNode) {
-          observer.disconnect()
-          observer.observe(tokensNode, { childList: true })
-        }
-      }
-
-      if (mutation.type == 'childList') {
-        let tokensNode = document.querySelector('.vscode-tokens-styles')
-        let tokensNodeContent = document.querySelector('.vscode-tokens-styles').innerText
-
-        if (tokensNode && tokensNodeContent) {
           init(observer)
         }
       }
     }
   }
-
-  init()
 
   const observer = new MutationObserver(watchForInit);
   observer.observe(bodyNode, { attributes: true });
